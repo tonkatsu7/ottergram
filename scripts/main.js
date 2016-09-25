@@ -29,3 +29,12 @@ function setDetailsFromThumb(thumbnail) {
 
   setDetails(imageFromThumb(thumbnail), titlefromThumb(thumbnail));
 }
+
+function addthumbClickHandler(thumb) {
+  'use strict'
+
+  thumb.addEventListener('click', function (event) {
+    event.preventDefault();
+    setDetailsFromThumb(thumb);
+  });
+}
