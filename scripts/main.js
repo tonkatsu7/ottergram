@@ -3,56 +3,56 @@ var DETAIL_TITLE_SELECTOR = '[data-image-role="title"]';
 var THUMBNAIL_LINK_SELECTOR = '[data-image-role="trigger"]';
 
 function setDetails(imageUrl, titleText) {
-  'use strict';
+    'use strict';
 
-  var detailImage = document.querySelector(DETAIL_IMAGE_SELECTOR);
-  detailImage.setAttribute('src', imageUrl);
+    var detailImage = document.querySelector(DETAIL_IMAGE_SELECTOR);
+    detailImage.setAttribute('src', imageUrl);
 
-  var detailTitle = document.querySelector(DETAIL_TITLE_SELECTOR);
-  detailTitle.textContent = titleText;
+    var detailTitle = document.querySelector(DETAIL_TITLE_SELECTOR);
+    detailTitle.textContent = titleText;
 }
 
 function imageFromThumb(thumbnail) {
-  'use strict'
+    'use strict';
 
-  return thumbnail.getAttribute('data-image-url');
+    return thumbnail.getAttribute('data-image-url');
 }
 
 function titlefromThumb(thumbnail) {
-  'use strict'
+    'use strict';
 
-  return thumbnail.getAttribute('data-image-title');
+    return thumbnail.getAttribute('data-image-title');
 }
 
 function setDetailsFromThumb(thumbnail) {
-  'use strict'
+    'use strict';
 
-  setDetails(imageFromThumb(thumbnail), titlefromThumb(thumbnail));
+    setDetails(imageFromThumb(thumbnail), titlefromThumb(thumbnail));
 }
 
 function addThumbClickHandler(thumb) {
-  'use strict'
+    'use strict';
 
-  thumb.addEventListener('click', function (event) {
-    event.preventDefault();
-    setDetailsFromThumb(thumb);
-  });
+    thumb.addEventListener('click', function (event) {
+        event.preventDefault();
+        setDetailsFromThumb(thumb);
+    });
 }
 
 function getThumbnailsArray() {
-  'use strict'
+    'use strict';
 
-  var thumbnails = document.querySelectorAll(THUMBNAIL_LINK_SELECTOR);
+    var thumbnails = document.querySelectorAll(THUMBNAIL_LINK_SELECTOR);
 
-  var thumbnailArray = [].slice.call(thumbnails);
-  return thumbnailArray;
+    var thumbnailArray = [].slice.call(thumbnails);
+    return thumbnailArray;
 }
 
 function initializeEvents() {
-  'use strict'
+    'use strict';
 
-  var thumbnails = getThumbnailsArray();
-  thumbnails.forEach(addThumbClickHandler);
+    var thumbnails = getThumbnailsArray();
+    thumbnails.forEach(addThumbClickHandler);
 }
 
 initializeEvents();
