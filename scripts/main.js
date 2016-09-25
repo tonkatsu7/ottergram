@@ -30,7 +30,7 @@ function setDetailsFromThumb(thumbnail) {
   setDetails(imageFromThumb(thumbnail), titlefromThumb(thumbnail));
 }
 
-function addthumbClickHandler(thumb) {
+function addThumbClickHandler(thumb) {
   'use strict'
 
   thumb.addEventListener('click', function (event) {
@@ -47,3 +47,12 @@ function getThumbnailsArray() {
   var thumbnailArray = [].slice.call(thumbnails);
   return thumbnailArray;
 }
+
+function initializeEvents() {
+  'use strict'
+
+  var thumbnails = getThumbnailsArray();
+  thumbnails.forEach(addThumbClickHandler);
+}
+
+initializeEvents();
